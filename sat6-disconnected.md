@@ -922,7 +922,7 @@ Run the following on the disconnected Satellite to set all current repositories 
 for repo in $(hammer --password redhat --output csv repository list --organization 'RedHat' | cut -f 1 -d ',' | tail -n +2 | tr '\n' ' '); do hammer repository update --id $repo --mirror-on-sync false; done
 ~~~
 
-The above needs to be run every time a new repository is added. I've opened this [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1416888) to have the mirror on sync attribute configurable as a policy (similar to the download policies)
+The above needs to be run every time a new repository is added.
 
 Now, let's synchronize them.
 ~~~
